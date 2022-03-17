@@ -6,9 +6,7 @@ import ShipList from './ShipList/ShipList';
 import ShipDetails from './ShipDetails/ShipDetails';
 
 function App() {
-  // const [navItems, setNavItems] =useState ([
 
-  // ])
   return (
     <>
       <nav>Starwars Starships</nav>

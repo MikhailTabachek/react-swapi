@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { getDetails } from '../services/api-calls'
+import PilotList from '../PilotList/PilotList'
+import getPilots from '../PilotList/PilotList'
 
 
 const ShipDetails = (props) => {
-  // const [shipDetails, setShipDetails] = useState({})
+
   let location = useLocation()
   let shipDetails = location.state.shipName
-
-  // useEffect(()=> {
-  //   getDetails(location.state)
-  //   .then(shipDetails => setShipDetails(shipDetails))
-  // }, [])
-
+  // const pilotUrls = location.state.shipName.pilots
 
   return ( 
     <>
@@ -23,6 +20,11 @@ const ShipDetails = (props) => {
       <div>
         <div className='text'>Name:<br></br> {shipDetails.name}</div>
         <div className='text'>Model: <br></br> {shipDetails.model}</div>
+        {/* <div className='text'>Pilots: <br></br> {shipDetails.pilots}</div>
+        <div className='text'>
+          {getPilots}
+        <PilotList/>
+        </div> */}
         <Link id="link" to='/'>Return</Link> 
       </div>
       :
