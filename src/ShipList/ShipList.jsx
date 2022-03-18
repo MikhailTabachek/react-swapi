@@ -13,10 +13,10 @@ const ShipList = (props) => {
   return ( 
     <>
     <div>
-      <h3>This is a list of all ships!</h3>
+      <h4>This is a list of all ships!</h4>
       <div className="icon-container">
         {ships.map((shipName) =>(
-          <Link to='/ship' state={{shipName}} key={shipName.name}>
+          <Link id="ship-link" to='/ship' state={{shipName}} key={shipName.name}>
           <div id="classDiv" >
             {shipName.name}
           </div>

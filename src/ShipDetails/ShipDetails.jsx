@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { getDetails } from '../services/api-calls'
-import PilotList from '../PilotList/PilotList'
 import getPilots from '../PilotList/PilotList'
 
 
-const ShipDetails = (props) => {
-
+const ShipDetails = () => {
+  const [names, setNames] = useState([])
   let location = useLocation()
   let shipDetails = location.state.shipName
-  // const pilotUrls = location.state.shipName.pilots
+  const pilotUrls = location.state.shipName.pilots
+
+  useEffect(() => {
+    const retreive = async() => {
+      const pilots = await getPilots(pilotUrls)
+      setNames(pilots)
+    }
+    retreive()
+  },[pilotUrls])
 
   return ( 
     <>
@@ -20,11 +27,13 @@ const ShipDetails = (props) => {
       <div>
         <div className='text'>Name:<br></br> {shipDetails.name}</div>
         <div className='text'>Model: <br></br> {shipDetails.model}</div>
-        {/* <div className='text'>Pilots: <br></br> {shipDetails.pilots}</div>
-        <div className='text'>
-          {getPilots}
-        <PilotList/>
-        </div> */}
+        {pilotUrls.length ?
+          <div className='text'>
+            {names.map(pilotName => {
+              return <div>{pilotName}</div>
+            })}
+          </div> : 
+          <div className='text'>No Pilots</div>}
         <Link id="link" to='/'>Return</Link> 
       </div>
       :

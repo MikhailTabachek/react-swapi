@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h4{
+  font-size: 35px;
+  color: aliceblue;
+  font-family: 'Russo One', sans-serif;
+  text-shadow: 2px 2px #030303;
+}
+
+#ship-link{
+  text-decoration: none;
+  font-size: 20px;
+}
+
